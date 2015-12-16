@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Basic App</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="message">Enter text</string>
+    <string name="send">Send</string>
+    <string name="logo">Basic App</string>
+    <string name="title_activity_display_message">DisplayMessageActivity</string>
+</resources>
