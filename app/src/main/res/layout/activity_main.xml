@@ -22,7 +22,8 @@
         android:onClick="sendMessage"
         android:layout_alignTop="@+id/message"
         android:layout_alignRight="@+id/logo"
-        android:layout_alignEnd="@+id/logo" />
+        android:layout_alignEnd="@+id/logo"
+        android:id="@+id/send" />
 
     <TextView
         android:layout_width="wrap_content"
