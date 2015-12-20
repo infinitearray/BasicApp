@@ -15,10 +15,13 @@ public class DisplayMessageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
        // setContentView(R.layout.activity_display_message);
         Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        Bundle extras = intent.getExtras();
+        String message = extras.getString("Message");
+        String givers = extras.getString("Giver");
+        String takers = extras.getString("Taker");
         TextView textview = new TextView(this);
         textview.setTextSize(40);
-        textview.setText("You have entered '"+message+"'");
+        textview.setText(givers+" gave Rs."+message+" to "+takers);
 
         setContentView(textview);
     }

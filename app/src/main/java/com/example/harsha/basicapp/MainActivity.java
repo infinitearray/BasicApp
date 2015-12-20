@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 public class MainActivity extends AppCompatActivity {
     public final static String EXTRA_MESSAGE = "com.example.harsha.basicapp.MESSAGE";
@@ -15,6 +17,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Spinner dropdown1 = (Spinner)findViewById(R.id.spinner1);
+        String[] items1 = new String[]{"Harsha", "Vishal", "Vivek", "Varshit", "Ram"};
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items1);
+        dropdown1.setAdapter(adapter1);
+
+        Spinner dropdown2 = (Spinner)findViewById(R.id.spinner2);
+        String[] items2 = new String[]{"Harsha", "Vishal", "Vivek", "Varshit", "Ram"};
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items2);
+        dropdown2.setAdapter(adapter2);
     }
 
     @Override
@@ -29,7 +41,13 @@ public class MainActivity extends AppCompatActivity {
         Intent intent=new Intent(this, DisplayMessageActivity.class);
         EditText edittext = (EditText) findViewById(R.id.message);
         String message = edittext.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
+        Spinner giver = (Spinner) findViewById(R.id.spinner1);
+        String givers = giver.getSelectedItem().toString();
+        Spinner taker = (Spinner) findViewById(R.id.spinner2);
+        String takers = taker.getSelectedItem().toString();
+        intent.putExtra("Message", message);
+        intent.putExtra("Giver", givers);
+        intent.putExtra("Taker", takers);
         startActivity(intent);
 
     }
